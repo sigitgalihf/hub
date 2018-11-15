@@ -1,0 +1,15 @@
+.logo {
+    width: 180px;
+    height: 60px;
+}
+
+.content-area {
+    background-color: aliceblue;
+    color: darkgray;
+}
+
+.header,
+.header-6 {
+    height: 200px;
+    background: rgb(45, 0, 75);
+}

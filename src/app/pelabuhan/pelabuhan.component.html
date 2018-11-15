@@ -1,0 +1,112 @@
+<div class="main-container">
+    <header class="header-6">
+        <div class="branding">
+            <a href="..." class="nav-link">
+                <img class="logo" src="../../assets/image/dishub.png" alt="logo">
+            </a>
+        </div>
+        <div class="header-actions">
+            <clr-dropdown>
+                <button class="nav-icon" clrDropdownTrigger>
+                    <clr-icon shape="cog"></clr-icon>
+                    <clr-icon shape="caret down"></clr-icon>
+                </button>
+                <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                    <a href="..." clrDropdownItem>About</a>
+                    <a href="..." clrDropdownItem>Preferences</a>
+                    <a href="..." clrDropdownItem>Log out</a>
+                </clr-dropdown-menu>
+            </clr-dropdown>
+        </div>
+    </header>
+    <div class="content-container">
+        <div class="content-area">
+            <div class="clr-row">
+                <div class="clr-col-12">
+                    <clr-tabs>
+                        <clr-tab>
+                            <button clrTabLink>Dashboard</button>
+                            <ng-template [(clrIfActive)]="dashboardActive">
+                                <clr-tab-content>
+
+                                </clr-tab-content>
+                            </ng-template>
+                        </clr-tab>
+
+                        <clr-tab>
+                            <button clrTabLink>Management</button>
+                            <ng-template [(clrIfActive)]="managementActive">
+                                <clr-tab-content>
+                                    <div class="clr-row">
+                                        <div class="title-tab clr-col-sm-6 clr-col-md-6">
+                                            <h1>Data Pelabuhan</h1>
+                                        </div>
+                                        <div class="clr-col-sm-4 clr-col-md-4">
+                                            <button class="btn btn-primary btn-right">
+                                                <clr-icon shape="plus"></clr-icon> Tambah
+                                            </button>
+                                            <clr-modal [(clrModalOpen)]="basic">
+                                                <h3 class="modal-title">I have a nice title</h3>
+                                                <div class="modal-body">
+                                                    <p>But not much to say...</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
+                                                    <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
+                                                </div>
+                                            </clr-modal>
+                                        </div>
+                                    </div>
+
+
+                                    <clr-datagrid>
+                                        <clr-dg-column>No</clr-dg-column>
+                                        <clr-dg-column>Nama Pelabuhan</clr-dg-column>
+                                        <clr-dg-column>Kota</clr-dg-column>
+
+                                        <clr-dg-row *ngFor="let pelabuhan of pelabuhan">
+
+                                            <clr-dg-action-overflow>
+                                                <button class="action-item" (click)="onEdit(user)">Edit</button>
+                                                <button class="action-item" (click)="onDelete(user)">Delete</button>
+                                            </clr-dg-action-overflow>
+                                            <clr-dg-cell>{{pelabuhan.id}}</clr-dg-cell>
+                                            <clr-dg-cell>{{pelabuhan.pelabuhan_name}}</clr-dg-cell>
+                                            <clr-dg-cell>{{pelabuhan.kota_name}}</clr-dg-cell>
+                                        </clr-dg-row>
+
+                                        <clr-dg-footer>Total Pelabuhan : {{pelabuhan.length}}</clr-dg-footer>
+                                    </clr-datagrid>
+                                    <button class="btn btn-success-outline"><clr-icon shape="checkbox-list"></clr-icon> Export Exel
+                                  </button>
+                                    <button class="btn btn-danger-outline"><clr-icon shape="file-zip"></clr-icon>Export PDF
+                                  </button>
+                                </clr-tab-content>
+                            </ng-template>
+                        </clr-tab>
+
+                    </clr-tabs>
+                </div>
+            </div>
+        </div>
+        <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+            <a clrVerticalNavLink routerLink="../dashboard">
+                <clr-icon clrVerticalNavIcon shape="user"></clr-icon>
+                User
+            </a>
+            <a clrVerticalNavLink routerLink="/pelabuhan" routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="map-marker"></clr-icon>
+                Pelabuhan
+            </a>
+            <a clrVerticalNavLink routerLink="">
+                <clr-icon clrVerticalNavIcon shape="bar-chart"></clr-icon>
+                Data Bagan
+            </a>
+            <a clrVerticalNavLink routerLink="">
+                <clr-icon clrVerticalNavIcon shape="boat"></clr-icon>
+                Kapal
+            </a>
+
+        </clr-vertical-nav>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="main-container">
+
+    <header class="header-6">
+        <div class="branding">
+            <a href="..." class="nav-link">
+                <img class="logo" src="../../assets/image/dishub.png" alt="logo">
+            </a>
+        </div>
+        <div class="header-actions">
+            <clr-dropdown>
+                <button class="nav-icon" clrDropdownTrigger>
+                    <clr-icon shape="cog"></clr-icon>
+                    <clr-icon shape="caret down"></clr-icon>
+                </button>
+                <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                    <a href="..." clrDropdownItem>About</a>
+                    <a href="..." clrDropdownItem>Preferences</a>
+                    <a href="..." clrDropdownItem>Log out</a>
+                </clr-dropdown-menu>
+            </clr-dropdown>
+        </div>
+    </header>
+    <div class="content-container">
+        <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+            <a clrVerticalNavLink routerLink="../dashboard" routerLinkActive="active">
+                <clr-icon clrVerticalNavIcon shape="user"></clr-icon>
+                User
+            </a>
+            <a clrVerticalNavLink routerLink="/pelabuhan">
+                <clr-icon clrVerticalNavIcon shape="map-marker"></clr-icon>
+                Pelabuhan
+            </a>
+            <a clrVerticalNavLink routerLink="">
+                <clr-icon clrVerticalNavIcon shape="bar-chart"></clr-icon>
+                Data Bagan
+            </a>
+            <a clrVerticalNavLink routerLink="">
+                <clr-icon clrVerticalNavIcon shape="boat"></clr-icon>
+                Kapal
+            </a>
+
+        </clr-vertical-nav>
+    </div>
+</div>
